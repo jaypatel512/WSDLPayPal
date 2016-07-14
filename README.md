@@ -3,7 +3,7 @@
 - Run `mvn clean package -Dmaven.javadoc.skip=true`, to convert wsdl to jar.
 - Use that jar to create a request.
 
-- This are our observations:
+- This is how the usage code would look like:
 
 ```java
 package com.jay.sample;
