@@ -1,6 +1,6 @@
 # WSDLPayPal
 
-- Run `mvn clean package`, to convert wsdl to jar.
+- Run `mvn clean package -Dmaven.javadoc.skip=true`, to convert wsdl to jar.
 - Use that jar to create a request.
 
 - This are our observations:
