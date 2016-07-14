@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.example</groupId>
+<artifactId>mywsdl</artifactId>
+<version>0.1.0-SNAPSHOT</version>
+<name>My WSDL client</name>
+<build>
+    <plugins>
+
+        <!-- Generates JAVA source files from the WSDL -->
+        <plugin>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+            <version>1.6.2</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>wsdl2code</goal>
+                    </goals>
+                    <configuration>
+                        <packageName>com.example</packageName>
+                        <wsdlFile>PayPalSvc.wsdl</wsdlFile><!-- TODO: Update this file with new WSDL versions -->
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+    </plugins>
+</build>
+
+<dependencies>
+<dependency>
+      <groupId>org.apache.axis2</groupId>
+      <artifactId>axis2</artifactId>
+      <version>1.6.2</version>
+</dependency>
+<dependency>
+      <groupId>org.apache.axis2</groupId>
+      <artifactId>axis2-adb</artifactId>
+      <version>1.6.2</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.ws.commons.axiom</groupId>
+    <artifactId>axiom-api</artifactId>
+    <version>1.2.14</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.ws.commons.axiom</groupId>
+    <artifactId>axiom-impl</artifactId>
+    <version>1.2.14</version>
+</dependency>
+</dependencies>
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+</project>
